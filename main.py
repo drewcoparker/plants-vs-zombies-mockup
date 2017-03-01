@@ -35,6 +35,13 @@ def run_game():
         if tick % 300 == 0:
             zombies.add(Zombie(screen, settings.zombie_speed, settings.zombie_health))
 
+        zombies_hit = groupcollide(zombies, bullets, False, True)
+        for zombie in zombies_hit:
+            print zombie
+            zombie.hit(1)
+            if zombie.health <= 0:
+                zombies.remove(zombie)
+                
         pygame.display.flip()
 
 

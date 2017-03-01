@@ -11,13 +11,15 @@ class Settings(object):
         self.squares = {
             'start_left': 368,
             'start_top': 245,
-            'square_width': 110,
-            'square_height': 105,
+            'square_width': 116,
+            'square_height': 102,
             'rows': [
-                245,
-                350,
-                455,
-                560,
-                665
+                368,
+                484,
+                600,
+                716,
+                832
             ]
         }
+
+        self.highlighted_square = 0

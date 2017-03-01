@@ -22,3 +22,6 @@ class Zombie(Sprite):
 
     def draw_me(self):
         self.screen.blit(self.image, self.rect)
+
+    def hit(self, damage):
+        self.health -= damage
