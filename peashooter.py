@@ -4,7 +4,7 @@ from plant import Plant
 
 class Peashooter(Plant):
     def __init__(self, screen, square):
-        self.shoot_speed = 2
+        self.shoot_speed = .5
         self.health = 5
         self.image_file = 'images/peashooter.png'
         self.screen = screen

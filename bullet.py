@@ -9,8 +9,9 @@ class Bullet(Sprite):
         self.image = pygame.image.load('./images/Giant_Pea2.png')
         self.image = pygame.transform.scale(self.image, (30, 30))
         self.rect = self.image.get_rect()
-        self.rect.centerx = plant.rect.centerx
-        self.rect.top = plant.rect.top
+        self.rect.centerx = plant.rect.centerx + 25
+        self.rect.top = plant.rect.top + 20
+        self.yard_row = plant.yard_row
         self.x = self.rect.x
         self.y = self.rect.y
 

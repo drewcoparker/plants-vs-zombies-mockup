@@ -32,16 +32,21 @@ def run_game():
         gf.check_events(screen, settings, squares, plants, bullets)
         gf.update_screen(screen, settings, background, zombies, squares, plants, bullets, tick)
         tick += 1
-        if tick % 300 == 0:
-            zombies.add(Zombie(screen, settings.zombie_speed, settings.zombie_health))
+        if tick % 110 == 0 or tick == 1:
+            zombies.add(Zombie(screen, settings))
 
-        zombies_hit = groupcollide(zombies, bullets, False, True)
+        zombies_hit = groupcollide(zombies, bullets, False, False)
+        plant_got_hit = groupcollide(plants, zombies, True, False)
         for zombie in zombies_hit:
             print zombie
-            zombie.hit(1)
-            if zombie.health <= 0:
-                zombies.remove(zombie)
-                
+            print zombies_hit
+            if zombie.yard_row == zombies_hit[zombie][0].yard_row:
+                bullets.remove(zombies_hit[zombie][0])
+                zombie.hit(1)
+                if zombie.health <= 0:
+                    zombies.remove(zombie)
+                    settings.zombie_in_row[zombie.yard_row] -= 1
+
         pygame.display.flip()
 
 

@@ -14,12 +14,18 @@ class Settings(object):
             'square_width': 116,
             'square_height': 102,
             'rows': [
-                368,
-                484,
-                600,
-                716,
-                832
+                245,
+                347,
+                449,
+                551,
+                653
             ]
         }
-
         self.highlighted_square = 0
+        self.zombie_in_row = [
+            0,
+            0,
+            0,
+            0,
+            0
+        ]

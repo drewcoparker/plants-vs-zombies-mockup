@@ -33,11 +33,10 @@ def update_screen(screen, settings, background, zombies, squares, plants, bullet
 
     for plant in plants:
         plant.draw_me()
-        if tick % 30 == 0:
-            bullets.add(Bullet(screen, plant))
+        if tick % 20 == 0:
+            if settings.zombie_in_row[plant.yard_row] > 0:
+                bullets.add(Bullet(screen, plant))
 
     for bullet in bullets.sprites():
         bullet.update_me(plant)
         bullet.draw_me()
-
-    
